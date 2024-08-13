@@ -1,11 +1,15 @@
 from utils.file_methods import dir_exist_check,create_dir
 import utils.project_setup as project_setup
+import constants.input_label as input_label
 
 def main():
 
     try:
-        path = "/practice/react"
-        project_setup.set_project(path,"")
+        dir_path = input(input_label.project_dir)
+        if dir_path == "":
+            main()
+            return
+        project_setup.set_project(dir_path,"")
 
 
     except Exception as e:
