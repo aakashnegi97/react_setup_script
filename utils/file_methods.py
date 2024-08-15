@@ -18,13 +18,17 @@ def run_command(path, command):
     # Ensure the outer directory exists
     make_dir_if_not_exist(path)
     # Run the command in the outer directory
+    original_directory = os.getcwd()
     try:
         os.chdir(path)
         # Run the command
         os.system(command)
         print(f"Command ran successfully in '{path}'")
+        os.chdir(original_directory)
     except Exception as e:
         print(f"Error : {e}")
+    finally:
+        os.chdir(original_directory)
 
 def check_dependency(project_dir, dependency_name):
     # Open and read the package.json file
@@ -56,9 +60,15 @@ def create_folder_structure(project_dir):
 
     # Create pages
     make_dir_if_not_exist("{}/{}".format(project_dir,"pages"))
+    make_dir_if_not_exist("{}/{}".format(project_dir,"pages/dashboard"))
+    make_dir_if_not_exist("{}/{}".format(project_dir,"pages/login"))
 
     # Create redux
     make_dir_if_not_exist("{}/{}".format(project_dir,"redux"))
+    # Create redux Action
+    make_dir_if_not_exist("{}/{}/{}".format(project_dir,"redux","actions"))
+    # Create redux Reducer
+    make_dir_if_not_exist("{}/{}/{}/{}".format(project_dir,"redux","reducer","user"))
 
     # Create assets
     make_dir_if_not_exist("{}/{}".format(project_dir,"assets"))

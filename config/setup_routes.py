@@ -28,13 +28,13 @@ def main(path):
             file = "App.js"
             file_methods.copy_paste_file("{}/{}".format("components",file),"{}/{}".format(src_path,file))
 
-            layoutPath = "{}/components/Layouts".format(src_path)
+            layoutPath = "{}/components/layouts".format(src_path)
             file_methods.make_dir_if_not_exist(layoutPath)
 
             file = "PublicLayout.js"
-            file_methods.copy_paste_file("{}/{}".format("components/layouts",file),"{}/components/Layouts/{}".format(src_path,file))
+            file_methods.copy_paste_file("{}/{}".format("components/layouts",file),"{}/components/layout/{}".format(src_path,file))
             file = "PrivateLayout.js"
-            file_methods.copy_paste_file("{}/{}".format("components/layouts",file),"{}/components/Layouts/{}".format(src_path,file))
+            file_methods.copy_paste_file("{}/{}".format("components/layouts",file),"{}/components/layout/{}".format(src_path,file))
 
         else:
             print(input_label.package_already_setup_message(package))

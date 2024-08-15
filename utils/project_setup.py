@@ -3,6 +3,8 @@ import utils.file_methods as file_methods
 import subprocess
 import os
 import config.setup_routes as setup_routes
+import config.setup_redux as setup_redux
+import config.setup_tailwind as setup_tailwind
 
 def get_project_name():
     dir_name = input(input_label.project_name)
@@ -32,6 +34,8 @@ def set_project(path,dir_name):
     if is_default_setup == "y":
         file_methods.create_folder_structure("{}/{}".format(project_dir,"src"))
         setup_routes.main(project_dir)
+        setup_redux.main(project_dir)
+        setup_tailwind.main(project_dir)
     else:
         print("Customization is not implemented yet!")
     
