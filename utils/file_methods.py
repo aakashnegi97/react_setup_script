@@ -54,6 +54,7 @@ def create_folder_structure(project_dir):
 
     # Create component
     make_dir_if_not_exist("{}/{}".format(project_dir,"components"))
+    make_dir_if_not_exist("{}/{}".format(project_dir,"components/layout"))
 
     # Create routes
     make_dir_if_not_exist("{}/{}".format(project_dir,"routes"))

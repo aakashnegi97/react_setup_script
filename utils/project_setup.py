@@ -23,7 +23,7 @@ def set_project(path,dir_name):
     project_dir = "{}/{}".format(path,dir_name)
     
     is_exist = file_methods.dir_exist_check(path,dir_name)
-    if not is_exist:
+    if not is_exist or True:
         is_create = input_label.question_yn(input_label.project_exist_false)
         if is_create == "y":
             create_react_project(path,dir_name)
